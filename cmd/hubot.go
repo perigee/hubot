@@ -17,6 +17,7 @@ const (
 type server struct{}
 
 func (s *server) GetInfo(ctx context.Context, in *pb.InfoRequest) (*pb.InfoResponse, error) {
+     log.Printf("Client: %s", in.Name)
      return &pb.InfoResponse{Version: "1.2", Endpoint: "hubot" }, nil
 }
 

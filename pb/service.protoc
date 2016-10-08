@@ -4,6 +4,7 @@ package pb;
 
 service Info {
 	rpc GetInfo (InfoRequest) returns (InfoResponse) {}
+	rpc listFiles (FilesReq)  returns (stream FilesResp) {}
 }
 
 message InfoRequest {
@@ -13,4 +14,12 @@ message InfoRequest {
 message InfoResponse {
 	string version = 1;
 	string endpoint = 2;
+}
+
+message FilesReq {
+	string name = 1;
+}
+
+message FilesResp {
+	string files = 1;
 }
