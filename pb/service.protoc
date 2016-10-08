@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package pb;
+
+service Info {
+	rpc GetInfo (InfoRequest) returns (InfoResponse) {}
+}
+
+message InfoRequest {
+	string name = 1;
+}
+
+message InfoResponse {
+	string version = 1;
+	string endpoint = 2;
+}
