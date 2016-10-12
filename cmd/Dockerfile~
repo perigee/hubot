@@ -1,5 +1,0 @@
-FROM golang:1.7.1-alpine
-
-COPY ubot /
-RUN chmod +x /ubot
-ENTRYPOINT ["/ubot"]
