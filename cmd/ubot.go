@@ -32,13 +32,20 @@ func (s *server) GetInfo(ctx context.Context, in *pb.InfoRequest) (*pb.InfoRespo
 }
 
 func main() {
+
+     creds, err := credentials.NewServerTLSFromFile(certFile, keyFile)
+
+     if err != nil {
+     	log.Fatalf("Failed to generate creds: %v", err)
+     }
+     
 	lis, err := net.Listen("tcp", port)
 
 	if err != nil {
 		log.Fatalf("Failed: %v", err)
 	}
 
-	s := grpc.NewServer()
+	s := grpc.NewServer(grpc.Creds(creds))
 	pb.RegisterInfoServer(s, &server{})
 	s.Serve(lis)
 }
