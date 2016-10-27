@@ -1,5 +1,4 @@
-FROM ubuntu:16.04
-
+FROM scratch
 COPY ubot /
-RUN chmod +x /ubot
+EXPOSE 50051
 ENTRYPOINT ["/ubot"]
