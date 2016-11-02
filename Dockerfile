@@ -1,5 +1,5 @@
 FROM scratch
 
-COPY cmd/ubot /
+ADD cmd/ubot /root/
 
-ENTRYPOINT ["/ubot"]
+ENTRYPOINT ["/root/ubot"]
