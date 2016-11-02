@@ -15,3 +15,6 @@ fmt:	## Format all the go code
 
 pb:	## Generate go code from proto file
 	protoc -I pb/ pb/service.protoc --go_out=plugins=grpc:pb
+
+lanuch:	## Lanuch the whole local testing system
+	docker-compose up
