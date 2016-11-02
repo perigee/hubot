@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  chatroom:
+    image: mattermost/mattermost-preview
+    ports:
+    - "8065:8065"
+  ubot:
+    build: .
+    depends_on:
+      - chatroom
