@@ -148,20 +148,20 @@ func FindBotTeam() {
 }
 
 func CreateBotDebuggingChannelIfNeeded() {
-	if channelsResult, err := client.GetChannels(""); err != nil {
-		println("We failed to get the channels")
-		PrintError(err)
-	} else {
-		channelList := channelsResult.Data.(*model.ChannelList)
-		for _, channel := range *channelList {
-
+	//if channelsResult, err := client.GetChannels(""); err != nil {
+	//	println("We failed to get the channels")
+	//	PrintError(err)
+	//} else {
+	//	channelList := channelsResult.Data.(*model.ChannelList)
+	//	for _, channel := range *channelList {
+	//
 			// The logging channel has alredy been created, lets just use it
-			if channel.Name == CHANNEL_LOG_NAME {
-				debuggingChannel = channel
-				return
-			}
-		}
-	}
+	//		if channel.Name == CHANNEL_LOG_NAME {
+	//			debuggingChannel = channel
+	//			return
+	//		}
+	//	}
+	//}
 
 	// Looks like we need to create the logging channel
 	channel := &model.Channel{}
@@ -207,9 +207,9 @@ func HandleMsgFromDebuggingChannel(event *model.WebSocketEvent) {
 	}
 
 	// Lets ignore if it's my own events just in case
-	if event.Broadcast.UserId == botUser.Id {
-		return
-	}
+	//if event.Broadcast.UserId == botUser.Id {
+	//	return
+	//}
 
 	println("responding to debugging channel msg")
 

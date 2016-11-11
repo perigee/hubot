@@ -1,6 +1,8 @@
 .PHONY: all
 .DEFAULT_GOAL := help
 
+GOFMT_FILES?=$$(find . -name '*.go' | grep -v vendor)
+
 unexport http_proxy
 unexport https_proxy
 unexport all_proxy
@@ -11,7 +13,7 @@ help:
 
 
 fmt:	## Format all the go code
-	gofmt -s -w .
+	gofmt -w $(GOFMT_FILES) 
 
 pb:	## Generate go code from proto file
 	protoc -I pb/ pb/service.protoc --go_out=plugins=grpc:pb
