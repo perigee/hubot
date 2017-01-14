@@ -20,3 +20,8 @@ deploy:
   - webfront
   - backend
 ```
+
+
+## Tools
+
+- Go-Fuzz for testing https://github.com/google/gofuzz
